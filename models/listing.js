@@ -9,8 +9,8 @@ const listingSchema= new Schema({
    description: String,
    image:{ 
     type: String,
-    default: "https://unsplash.com/photos/a-model-of-a-house-on-top-of-a-mountain-o8m4r6iqlSc",
-    set: (v)=> v===""? "https://unsplash.com/photos/a-model-of-a-house-on-top-of-a-mountain-o8m4r6iqlSc" :v ,
+    default: "https://unsplash.com/photos/brown-wooden-house-with-green-grass-field-Bkp3gLygyeA",
+    set: (v)=> v===""? "https://unsplash.com/photos/brown-wooden-house-with-green-grass-field-Bkp3gLygyeA" :v ,
    },
    price: Number,
    location: String,

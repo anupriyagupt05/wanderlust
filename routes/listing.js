@@ -14,14 +14,17 @@ router.route("/")
 router.get("/new",isloggedIn,listingController.renderNewForm);
 
 
+// EDIT ROUTE
+router.get("/:id/edit", isloggedIn,isOwner, wrapAsync(listingController.renderEditForm));
+
+
+
 //SHOW ROUTE & UPDATE ROUTE & DELETE ROUTE
 router.route("/:id")
 .get(wrapAsync(listingController.showlisting))
 .put(isloggedIn, isOwner, validateListing,wrapAsync(listingController.updateListing))
 .delete(isloggedIn,isOwner,wrapAsync(listingController.deleteListing));
 
-// EDIT ROUTE
-router.get("/:id/edit", isloggedIn,isOwner, wrapAsync(listingController.renderEditForm));
 
 
 

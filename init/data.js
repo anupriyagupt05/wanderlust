@@ -264,7 +264,7 @@ const sampleListings = [
       image: "https://images.unsplash.com/photo-1439066615861-d1af74d74000?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8bGFrZXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=800&q=60",
       
       price: 6000,
-  https://discordapp.com/channels/@me/1307949479659307039    location: "Maldives",
+      location: "Maldives",
       country: "Maldives",
     },
     {

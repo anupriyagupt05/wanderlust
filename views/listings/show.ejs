@@ -1,4 +1,12 @@
 <% layout("/layouts/boilerplate") %>
+<script>
+  const mapToken = "<%= process.env.MAP_TOKEN %>";
+   const listing = <%-  JSON.stringify(listing)  %>
+  </script>
+
+
+
+
 <div class="row">
   <div class="col-8  offset-2">
 
@@ -7,7 +15,7 @@
     <h3> <%= listing.title %> </h3>
 
 <div class="card col-6  show-card listing-card ">
-  <img src="<%= listing.image %>" class="card-img-top  show-img" alt="listing_image">
+  <img src="<%= listing.image.url %>" class="card-img-top  show-img" alt="listing_image">
   <div class="card-body">
   <p class="card-text">Owned by <i> <%= listing.owner.username %></i> </p> <br>
   <p class="card-text">    <%= listing.description %> </p> <br>
@@ -55,7 +63,7 @@
       name="review[rating]"
       value="0"
       checked
-      arial-lable="No rating."
+      arial-l.able="No rating."
       />
       <input type="radio" id="first-rate1" name="review[rating]" value="1" />
       <label for="first-rate1" title="Terrible">1 star</label>
@@ -85,8 +93,9 @@
 
 
   <hr/>
-  <p> <b> All Reviews </b></p>
+  <% if(listing.reviews.length > 0)  { %> 
   <div class="row">
+    <p> <b> All Reviews </b></p>
     <% for(review of listing.reviews) { %>
      <div class="card col-5 ms-3 mb-3">
       <div class="card-body">
@@ -97,15 +106,18 @@
       <form class="mb-3" method="POST" action="/listings/<%= listing._id %>/reviews/<%= review._id %>?_method=DELETE">
         <button class="btn btn-sm btn-dark">Delete</button>
       </form>
-     </div>
-     </div>
-   <% } %>
+    </div>
+  </div>
+  <% } %>
+</div>
+<% } %>
+</div>
+
+<div class="col-6 mb-3">
+  <h3> Where you'll be </h3>
+  <div id="map"></div>
 </div>
 
 </div>
 
-</body>
-
-</div>
-</div>
-
+<script src="/js/map.js"></script>
